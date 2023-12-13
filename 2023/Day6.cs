@@ -14,7 +14,7 @@ public class Day6 : IDay
   {
     IEnumerable<Race> races = ParseRaces(input);
     IEnumerable<int> possibilities = races.Select(r => Possibilities(r));
-    Console.WriteLine(possibilities.Aggregate((a, i) => a *= i));
+    Console.WriteLine(possibilities.Sum());
   }
   public int Possibilities(Race race)
   {

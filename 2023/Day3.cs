@@ -56,8 +56,8 @@ public class Day3 : IDay
       partsNumbers = partsNumbers.Append(getPartNumbers(part, schematic));
     }
     IEnumerable<Number> allNumbers = partsNumbers.SelectMany(p => p.Numbers);
-    int sum = allNumbers.DistinctBy((n) => new { n.x, n.y }).Select(n => n.Value).Aggregate((a, i) => a += i);
-    int gearSum = partsNumbers.Where(p => p.isGear && p.Numbers.Count() == 2).Select(p => p.Numbers.Select(n => n.Value).Aggregate((a, i) => a *= i)).Aggregate((a, i) => a += i);
+    int sum = allNumbers.DistinctBy((n) => new { n.x, n.y }).Select(n => n.Value).Sum();
+    int gearSum = partsNumbers.Where(p => p.isGear && p.Numbers.Count() == 2).Select(p => p.Numbers.Select(n => n.Value).Sum()).Sum();
     Console.WriteLine($"parts {sum}");
     Console.WriteLine($"gears {gearSum}");
     //38682924 too low

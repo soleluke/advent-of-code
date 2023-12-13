@@ -109,7 +109,7 @@ public class Day7 : IDay
       winnings.Add(rank * hands[i].Bet);
     }
 
-    Console.WriteLine(winnings.Aggregate((a, i) => a += i));
+    Console.WriteLine(winnings.Sum());
   }
   private IEnumerable<Hand> ParseHands(string input)
   {

@@ -34,7 +34,7 @@ public class Day4 : IDay
       CountCards(card, cards, cardCounts);
     }
     Console.WriteLine($"{string.Join('\n', cardCounts.Select(kv => $"{kv.Key}: {kv.Value}"))}");
-    Console.WriteLine(cardCounts.Values.Aggregate((a, i) => a += i));
+    Console.WriteLine(cardCounts.Values.Sum());
   }
   private void CountCards(ScratchCard card, IList<ScratchCard> cards, Dictionary<int, int> counts)
   {

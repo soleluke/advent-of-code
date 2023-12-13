@@ -9,7 +9,7 @@ public class Day9 : IDay
     IEnumerable<IEnumerable<int>> lasts = Task.WhenAll(tasks).Result;
     Console.WriteLine(string.Join('\n', lasts.Select(l => string.Join(',', l))));
     var sums = lasts.Select(r => r.First());
-    Console.WriteLine(sums.Aggregate((a, i) => a += i));
+    Console.WriteLine(sums.Sum());
   }
   public Task<IEnumerable<int>> Extrapolate(IEnumerable<int> history)
   {

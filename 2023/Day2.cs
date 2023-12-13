@@ -70,9 +70,9 @@ public class Day2 : IDay
         ids = ids.Append(game.Number);
       }
     }
-    Console.WriteLine(minimumSets.Select((s) => SetPower(s)).Aggregate((a, i) => a += i));
+    Console.WriteLine(minimumSets.Select((s) => SetPower(s)).Sum());
     Console.WriteLine(string.Join(',', ids));
-    Console.WriteLine(ids.Aggregate((a, i) => a += i));
+    Console.WriteLine(ids.Sum());
   }
   private IEnumerable<Game> ParseGames(string input)
   {
