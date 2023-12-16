@@ -30,7 +30,8 @@ public class Program
       {12,new Day12()},
       {13,new Day13()},
       {14, new Day14()},
-      {15,new Day15()}
+      {15,new Day15()},
+      {16,new Day16()}
     };
     Stopwatch sw = new Stopwatch();
     sw.Start();
