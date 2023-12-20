@@ -259,6 +259,7 @@ public class Day19 : IDay
         {
           Default = def
         };
+        //this is lazy coding to minimize changes from part 1 to part 2
         foreach (string rule in rules.Skip(1).Reverse())
         {
           Match m = Regex.Match(rule, @"([xmas])([<>])(\d+)\:(\w+)");
