@@ -1,5 +1,5 @@
 using System.Text.RegularExpressions;
-public class Day6 : IDay
+public class Day06 : IDay
 {
   public class Race
   {

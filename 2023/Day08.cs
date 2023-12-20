@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-public class Day8 : IDay
+public class Day08 : IDay
 {
   public class Directions
   {

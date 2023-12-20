@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-public class Day2 : IDay
+public class Day02 : IDay
 {
   private class Game
   {
@@ -33,7 +33,7 @@ public class Day2 : IDay
   }
   private bool Debug;
 
-  public Day2(bool debug)
+  public Day02(bool debug)
   {
     Debug = debug;
   }

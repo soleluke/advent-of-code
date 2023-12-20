@@ -1,9 +1,9 @@
 using System.Text.RegularExpressions;
 
-public class Day1 : IDay
+public class Day01 : IDay
 {
   private bool DEBUG;
-  public Day1(bool debug)
+  public Day01(bool debug)
   {
     DEBUG = debug;
   }

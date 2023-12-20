@@ -1,4 +1,4 @@
-public class Day3 : IDay
+public class Day03 : IDay
 {
   private class Number
   {
@@ -26,7 +26,7 @@ public class Day3 : IDay
     }
   }
   private bool DEBUG { get; set; }
-  public Day3(bool debug)
+  public Day03(bool debug)
   {
     DEBUG = debug;
   }

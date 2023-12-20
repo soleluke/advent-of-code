@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-public class Day7 : IDay
+public class Day07 : IDay
 {
   public enum Card
   {
@@ -51,17 +51,17 @@ public class Day7 : IDay
       IEnumerable<IGrouping<Card, Card>> groups = Cards.GroupBy(c => c);
 
       if (CheckCount(groups, 1))
-        return Day7.Type.FiveOfAKind;
+        return Day07.Type.FiveOfAKind;
       if (CheckCount(groups, 2))
       {
         int jokerCount = groups.FirstOrDefault(g => g.Key == Card.Joker)?.Count() ?? 0;
         if (groups.Any(g => g.Count() == 4) || groups.Any(g => g.Count() + jokerCount == 4))
         {
-          return Day7.Type.FourOfAKind;
+          return Day07.Type.FourOfAKind;
         }
         else
         {
-          return Day7.Type.FullHouse;
+          return Day07.Type.FullHouse;
         }
       }
       if (CheckCount(groups, 3))
@@ -70,14 +70,14 @@ public class Day7 : IDay
         if (groups.Count(g => g.Count() == 2) == 2
         || jokerCount > 2
         )
-          return Day7.Type.TwoPair;
+          return Day07.Type.TwoPair;
         else
-          return Day7.Type.ThreeOfAKind;
+          return Day07.Type.ThreeOfAKind;
       }
       if (CheckCount(groups, 4))
-        return Day7.Type.OnePair;
+        return Day07.Type.OnePair;
       if (CheckCount(groups, 5))
-        return Day7.Type.HighCard;
+        return Day07.Type.HighCard;
       throw new Exception("failed to parse type " + this.ToString());
 
     }
