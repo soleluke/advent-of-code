@@ -137,14 +137,12 @@ public class Day19 : IDay
       List<(string, Constraints)> cs = new List<(string, Constraints)>();
       foreach ((var k, var comp) in Rules)
       {
-        Console.Write(k);
         var xSplit = con.Split(comp, k);
         if (xSplit.Item1 != null)
           cs.Add((comp.Next, xSplit.Item1));
         if (xSplit.Item2 != null)
           con = xSplit.Item2;
       }
-      Console.WriteLine();
       cs.Add((this.Default, con));
       return cs;
     }
@@ -153,7 +151,8 @@ public class Day19 : IDay
   {
     (var parts, var workflow) = ParseRows(input);
     Constraints xmas = new Constraints();
-    long p = PossQueue(xmas, "in", workflow);
+    long p = Possibilities(xmas, "in", workflow);
+    long p2 = PossQueue(xmas, "in", workflow);
     Console.WriteLine(p);
     //Console.WriteLine(string.Join(',', workflow.Keys));
     //IEnumerable<Task<int>> work = parts.Select(p => Work(p, workflow));
@@ -169,12 +168,10 @@ public class Day19 : IDay
     while (queue.Count > 0)
     {
       (var key, var con) = queue.Dequeue();
-      Console.WriteLine($"{key} {con}");
       var flow = workflow[key];
 
       foreach ((var next, var c) in flow.GetSplits(con))
       {
-        Console.WriteLine($"   {next} {c}");
         switch (next)
         {
           case "A":
@@ -189,7 +186,6 @@ public class Day19 : IDay
         }
       }
     }
-    Console.WriteLine(string.Join('\n', ranges.Select(r => r?.ToString())));
     return ranges.Select(r => r?.Possible() ?? 0).Sum();
   }
   public long Possibilities(Constraints xmas, string current, Dictionary<string, Workflow> workflow)
