@@ -197,7 +197,7 @@ public class Day20 : IDay
     {
       //just getting out of the loop
     }
-    Console.WriteLine(string.Join(',', test.Keys));
+    Console.WriteLine(string.Join(',', test.Select(t => $"{t.Key}:{t.Value}")));
     Console.WriteLine(LCM(test.Values.ToArray()));
     long low = modules.Values.Select(v => (long)v.LowPulses).Sum();
     long high = modules.Values.Select(v => (long)v.HighPulses).Sum();
