@@ -193,7 +193,7 @@ public class Day20 : IDay
         }
       }
     }
-    catch (MachineOn mo)
+    catch (MachineOn)
     {
       //just getting out of the loop
     }
