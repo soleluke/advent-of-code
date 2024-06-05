@@ -94,7 +94,6 @@ public class Day04 : IDay
     var draws = res.Item1;
     var boards = res.Item2;
 
-    Board? lastWinner = null;
     foreach (int draw in draws)
     {
       MarkBoards(boards, draw);
@@ -135,13 +134,15 @@ public class Day04 : IDay
 
   public (int[], Board[]) ParseRows(string input)
   {
-    int[] draws;
+    int[] draws = new int[0];
     List<Board> boards = new List<Board>();
     using (StringReader sr = new StringReader(input))
     {
       string? line;
       line = sr.ReadLine();
-      draws = line.Split(',').Select(s => int.Parse(s)).ToArray();
+      if (line != null)
+        draws = line.Split(',').Select(s => int.Parse(s)).ToArray();
+
       //empty space before boards
       line = sr.ReadLine();
       List<int[]> rows = new List<int[]>();
