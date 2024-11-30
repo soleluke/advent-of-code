@@ -5,6 +5,7 @@ echo $1
 year=$1
 
 [[ -d $year ]] || cp -r template $year
+mkdir $year/inputs
 
 ext=".cs"
 
